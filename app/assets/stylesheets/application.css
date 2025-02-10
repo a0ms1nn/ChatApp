@@ -1,0 +1,591 @@
+html, body, #chatapp {
+    height: 100%;
+    margin: 0;
+}
+    
+ #chatapp {
+    display: flex;
+    flex-direction: row;
+}
+
+#rooms {
+    background-color: rgb(185, 1, 1);
+    width: 200px;
+    border: 2px solid rgb(6, 4, 6); /* ขอบหนา 2px สีดำ */
+    border-radius: 8px; /* มุมขอบโค้งมน */
+}
+    
+#messages {
+    background-color: rgb(255, 255, 255);
+    flex-grow: 1;
+}
+
+#message-form {
+    display: flex;
+}
+
+.message form {
+    display: inline-block;
+}
+
+/* การตั้งค่าพื้นฐาน */
+body {
+  background-color: #f5f3ff; 
+  font-family: 'Poppins', sans-serif; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.LoginContainer {
+  background: linear-gradient(145deg, #2f59ef, #07098f); /* กราเดียเอนต์สีฟ้าและน้ำเงิน */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.1); /* ปรับเงา */
+  text-align: center;
+  width: 300px;
+  animation: gradientAnimation 5s ease infinite, slideIn 0.5s ease-out;
+}
+
+
+/* การตั้งค่าหัวข้อ */
+.LoginContainer h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ฟอร์ม */
+.LoginContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ช่องกรอกข้อมูล */
+.LoginContainer input[type="email"],
+.LoginContainer input[type="password"] {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 2px solid #e0e7ff; 
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.LoginContainer input[type="email"]:focus,
+.LoginContainer input[type="password"]:focus {
+  border-color: linear-gradient(145deg, #203da7, #010251);
+  box-shadow: 0 0 5px #381559;
+}
+
+.LoginContainer input[type="email"]:hover,
+.LoginContainer input[type="password"]:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.LoginContainer input[type="email"]:focus,
+.LoginContainer input[type="password"]:focus {
+  box-shadow: 0 0 10px rgba(49, 22, 75, 0.7);
+}
+
+/* เพิ่มไอคอนในช่องกรอกข้อมูล (ตัวอย่างสำหรับ email) */
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9333ea;
+}
+
+.LoginContainer input[type="email"],
+.LoginContainer input[type="password"] {
+  padding-left: 30px;
+}
+
+/* ปุ่ม Submit */
+.LoginContainer input[type="submit"] {
+  background: linear-gradient(145deg, #010251, #203da7); 
+  color: white; 
+  border: none;
+  padding: 0.75rem 1.5rem; 
+  border-radius: 8px; /* ปรับให้โค้งมนมากขึ้น */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  border: solid 2px rgba(255, 255, 255, 0.984); /* ปรับสี border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.LoginContainer input[type="submit"]:hover {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  color: #fff;
+  transform: translateY(-4px); /* ยกปุ่มขึ้นเมื่อ hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* เพิ่มเงาเมื่อ hover */
+}
+
+.LoginContainer input[type="submit"]:active {
+  transform: scale(0.95); /* ลดขนาดเมื่อกด */
+}
+
+/* ปุ่มทั่วไป */
+button {
+  background: rgba(255, 255, 255, 0.503);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem; 
+  border-radius: 8px; /* ปรับให้โค้งมนมากขึ้น */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  border: solid 3px rgba(255, 255, 255, 0.923); /* ปรับสี border */
+}
+
+button:hover {
+  background: linear-gradient(145deg, #000, #333); /* เปลี่ยนสีเมื่อ hover */
+  color: #fff;
+  transform: translateY(-4px); /* ยกปุ่มขึ้นเมื่อ hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* เพิ่มเงาเมื่อ hover */
+}
+
+button:active {
+  transform: scale(0.95); /* ลดขนาดเมื่อกด */
+}
+/* ลิงค์ */
+a {
+  color: white; 
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ปรับแต่งให้ดูดีขึ้นบนหน้าจอขนาดเล็ก */
+@media (max-width: 400px) {
+  .LoginContainer {
+    width: 90%;
+    padding: 1rem;
+  }
+}
+
+.flash-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 90%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flash-message.alert {
+  background-color: #2f59ef; /* น้ำเงิน */
+  color: #ffffff; /* ขาว */
+  border: 1px solid #1e3a8a; /* น้ำเงินเข้ม */
+}
+
+.flash-message.notice {
+  background-color: #07098f; /* น้ำเงินเข้ม */
+  color: #ffffff; /* ขาว */
+  border: 1px solid #2f59ef; /* น้ำเงินอ่อน */
+}
+
+.flash-message.alert:hover,
+.flash-message.notice:hover {
+  opacity: 0.9;
+  transform: translateX(-50%) scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  background-color: #f5f3ff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.Registration {
+  background: linear-gradient(145deg, #2f59ef, #07098f);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 320px;
+}
+
+.Registration h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.Registration form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Registration form div {
+  width: 100%;
+}
+
+.Registration input[type="email"],
+.Registration input[type="password"] {
+  padding: 0.75rem;
+  width: 100%;
+  border: 2px solid #e0e7ff;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.Registration input[type="email"]:focus,
+.Registration input[type="password"]:focus {
+  border-color: #2f59ef;
+  box-shadow: 0 0 5px #2f59ef;
+}
+
+.Registration input[type="submit"] {
+  background: linear-gradient(145deg, #010251, #203da7); 
+  color: white; 
+  border: none;
+  padding: 0.75rem 1.5rem; 
+  border-radius: 8px; /* ปรับให้โค้งมนมากขึ้น */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  border: solid 2px rgba(255, 255, 255, 0.984); /* ปรับสี border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  width: 100%;
+}
+
+.Registration input[type="submit"]:hover {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  color: #fff;
+  transform: translateY(-4px); /* ยกปุ่มขึ้นเมื่อ hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.Registration a.btn {
+  display: inline-block;
+  background-color: #381559;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+  width: 85%;
+}
+
+.Registration a.btn:hover {
+  background-color: #2f0b40;
+}
+
+  body {
+    background-color: #f5f3ff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  #chatapp {
+    display: flex;
+    gap: 0rem;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #rooms-container {
+    flex:0 0 20%; /* กำหนดให้กินพื้นที่ 40% ของหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 1rem;
+    background: linear-gradient(145deg, #a78bfa, #fbbf24);
+  }
+  
+  #messages-container {
+    flex: 2; /* พื้นที่ที่เหลือจาก #rooms-container */
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 1rem;
+    background: linear-gradient(145deg, #a78bfa, #fbbf24);
+  }
+  
+  #rooms-header, #messages-header {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  #room-list {
+    display: flex;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    gap: 0.75rem; /* ระยะห่างระหว่างรายการ */
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    padding: 1rem; /* ระยะห่างรอบๆ */
+    border-radius: 12px; /* มุมโค้งมน */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* เงาด้านใน */
+    min-height: 40vh;
+    max-height: 40vh; /* จำกัดความสูงสูงสุด */
+    overflow-y: auto; /* สร้างสกรอลแนวตั้งถ้ารายการยาวเกิน */
+  }
+  
+  /* การตกแต่งแต่ละห้อง */
+  #room-list > div {
+    display: flex;
+    align-items: center; /* จัดให้อยู่แนวเดียวกัน */
+    padding: 0.5rem 1rem;
+    background-color: #f9f9f9; /* พื้นหลังสีอ่อน */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* เงาด้านนอก */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  #room-list > div:hover {
+    background-color: #eef2ff; /* เปลี่ยนสีเมื่อเลื่อนเมาส์ผ่าน */
+    transform: translateY(-2px); /* ยกขึ้นเล็กน้อย */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  }
+  
+
+  .btn-logout {
+    display: inline-block;
+    background: linear-gradient(145deg, #8b74d1, #d5a01c);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาเพิ่มมิติ */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb); /* สลับสีไล่เฉด */
+    transform: scale(1.05); /* ขยายเล็กน้อย */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้น */
+  }
+  
+  .btn-logout:active {
+    transform: scale(0.95); /* หดลงเล็กน้อยตอนกด */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* เงาน้อยลง */
+  }
+  
+  .btn-logout:focus {
+    outline: none; /* ลบเส้นกรอบ */
+    box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.5); /* วงแสงรอบปุ่ม */
+  }  
+  
+  #message-list {
+    flex: 1;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    min-height: 66vh; /* ตั้งความสูงขั้นต่ำ */
+    max-height: 58vh; /* จำกัดความสูงสูงสุด */
+  }
+  
+  #message-list > div {
+    background-color: #f9f9f9;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    word-wrap: break-word; /* หักคำถ้าข้อความยาวเกิน */
+  }
+  
+  /* Message Form */
+#message-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.75rem;
+  
+  width: 100%;
+  max-width: 500px;
+  margin: 0rem auto;
+}
+
+#message-form input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-left: -5%;
+  align-items: center;
+  width: 200px;
+}
+
+#message-form input[type="text"]:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #9476ed;
+}
+
+#message-form input[type="submit"] {
+  background-color: #a94ad8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#message-form input[type="submit"]:hover {
+  background-color: #7d37a0;
+  transform: scale(1.05);
+}
+
+/* สำหรับ Room Form */
+#actions form {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+#actions form div {
+  margin-bottom: 1rem;
+}
+
+#actions form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #191a1c;
+  margin-left: 0;
+}
+
+#actions form input[type="text"] {
+  width: 180px;
+  border: 1px solid #b3b4b5;
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #f3f4f6;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  
+}
+
+#actions form input[type="text"]:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #fbbf24;
+}
+
+#actions form input[type="submit"] {
+  background-color: #a94ad8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#actions form input[type="submit"]:hover {
+  background-color: #7d37a0;
+  transform: scale(1.05);
+}
+
+#actions form div ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #b91c1c;
+}
+
+button[data-confirm] {
+  background-color: #ef4444; /* สีแดงสำหรับปุ่ม Delete */
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem; /* ปรับ padding ให้เล็กลง */
+  border-radius: 6px; /* มุมโค้งเล็กลง */
+  font-size: 0.8rem; /* ขนาดข้อความเล็กลง */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-left: 1rem;
+  margin-top: -1rem;
+}
+
+button[data-confirm]:hover {
+  background-color: #b91c1c; /* สีแดงเข้มขึ้นเมื่อ hover */
+  transform: scale(1.05); /* ขยายเล็กน้อย */
+}
+
+button[data-confirm]:active {
+  transform: scale(1); /* ย้อนกลับเมื่อคลิก */
+  background-color: #7f1d1d; /* สีเข้มที่สุดเมื่อกด */
+}
+
+.notice {
+  position: fixed; 
+  top: 20px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  padding: 10px 20px; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+  z-index: 1000; /* ให้แสดงด้านบนสุด */
+  opacity: 0; /* เริ่มต้นให้ซ่อน */
+  pointer-events: none; /* ป้องกันการคลิกเมื่อซ่อน */
+  transition: opacity 0.5s ease-in-out; /* เพิ่มการเปลี่ยนแปลงแบบนุ่มนวล */
+}
