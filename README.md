@@ -1,24 +1,33 @@
-# README
+โปรเจกต์นี้เป็นแอปพลิเคชันแชทที่พัฒนาด้วย Ruby on Rails  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## วิธีการรันโปรเจกต์  
 
-Things you may want to cover:
+### 1. โคลนโปรเจกต์ลงเครื่อง  
+   ```bash
+   git clone https://github.com/a0ms1nn/ChatApp.git  
+   cd ChatApp  
 
-* Ruby version
+2. ติดตั้ง Dependencies
 
-* System dependencies
+bundle install  
 
-* Configuration
+3. ตั้งค่า Database
+	•	สร้างฐานข้อมูล:
 
-* Database creation
+rails db:create  
 
-* Database initialization
 
-* How to run the test suite
+	•	รันการ Migrate:
 
-* Services (job queues, cache servers, search engines, etc.)
+rails db:migrate  
 
-* Deployment instructions
 
-* ...
+
+4. รันเซิร์ฟเวอร์
+
+rails server  
+
+5. เปิดใช้งาน
+	•	เปิดเบราว์เซอร์และไปที่:
+
+http://localhost:3000  
