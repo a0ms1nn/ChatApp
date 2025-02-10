@@ -3,11 +3,11 @@
 ## วิธีการรันโปรเจกต์  
 
 ### 1. โคลนโปรเจกต์ลงเครื่อง  
-   ```bash
+
    git clone https://github.com/a0ms1nn/ChatApp.git  
    cd ChatApp  
 
-2. ติดตั้ง Dependencies
+### 2. ติดตั้ง Dependencies
 
 bundle install  
 
