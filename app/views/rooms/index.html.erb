@@ -34,12 +34,12 @@
       </div>
 
       <div id="message-form">
-        <%= render partial: 'messages/form', locals: {message: Message.new(room: @room)} %>
-      </div>
-      <% if @room %>
+        <% if @room %>
         <%= render partial: 'messages/form', locals: {message: Message.new(room: @room)} %>
         <%= turbo_stream_from @room %>
       <% end %>
+      </div>
+      
     <% end %>
   </div>
 </div>

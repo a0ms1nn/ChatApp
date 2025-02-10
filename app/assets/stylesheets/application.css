@@ -164,9 +164,11 @@ button:active {
 }
 /* ลิงค์ */
 a {
-  color: white; 
+  color: black; 
   text-decoration: none;
   font-size: 0.9rem;
+  text-align: center;
+  font-size:large;
 }
 
 a:hover {
@@ -196,15 +198,15 @@ a:hover {
 }
 
 .flash-message.alert {
-  background-color: #2f59ef; /* น้ำเงิน */
-  color: #ffffff; /* ขาว */
-  border: 1px solid #1e3a8a; /* น้ำเงินเข้ม */
+  background-color: #ffffff; /* น้ำเงิน */
+  color: #120e0e; /* ขาว */
+  border: 2px solid #001346; /* น้ำเงินเข้ม */
 }
 
 .flash-message.notice {
-  background-color: #07098f; /* น้ำเงินเข้ม */
-  color: #ffffff; /* ขาว */
-  border: 1px solid #2f59ef; /* น้ำเงินอ่อน */
+  background-color: #ffffff; /* น้ำเงิน */
+  color: #120e0e; /* ขาว */
+  border: 2px solid #001346; /* น้ำเงินอ่อน */
 }
 
 .flash-message.alert:hover,
@@ -291,18 +293,29 @@ body {
 
 .Registration a.btn {
   display: inline-block;
-  background-color: #381559;
+  background:  rgba(255, 255, 255, 0.503); /* ปรับสีพื้นหลังเป็นแบบโปร่งใส */
   color: #ffffff;
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
-  transition: background-color 0.2s ease-in-out;
-  width: 85%;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease; /* ใช้ transition แบบเดียวกับปุ่มแรก */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  border: solid 3px rgba(255, 255, 255, 0.923); /* ปรับสี border ให้เข้ากับพื้นหลัง */
+  width: 85%; /* ตั้งขนาดความกว้าง */
 }
 
 .Registration a.btn:hover {
-  background-color: #2f0b40;
+  background: linear-gradient(145deg, #000, #333); /* เปลี่ยนสีเมื่อ hover */
+  color: #fff;
+  transform: translateY(-4px); /* ยกปุ่มขึ้นเมื่อ hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* เพิ่มเงาเมื่อ hover */
+}
+
+.Registration a.btn:active {
+  transform: scale(0.95); /* ลดขนาดเมื่อกด */
 }
 
   body {
@@ -331,18 +344,20 @@ body {
     flex:0 0 20%; /* กำหนดให้กินพื้นที่ 40% ของหน้าจอ */
     display: flex;
     flex-direction: column;
-    border-radius: 12px;
     padding: 1rem;
-    background: linear-gradient(145deg, #a78bfa, #fbbf24);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #2f59ef, #07098f);
+    border: solid 3px rgba(255, 255, 255, 0.923);
   }
   
   #messages-container {
     flex: 2; /* พื้นที่ที่เหลือจาก #rooms-container */
     display: flex;
     flex-direction: column;
-    border-radius: 12px;
     padding: 1rem;
-    background: linear-gradient(145deg, #a78bfa, #fbbf24);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #2f59ef, #07098f);
+    border: solid 3px rgba(255, 255, 255, 0.923);
   }
   
   #rooms-header, #messages-header {
@@ -385,7 +400,7 @@ body {
 
   .btn-logout {
     display: inline-block;
-    background: linear-gradient(145deg, #8b74d1, #d5a01c);
+    background: linear-gradient(145deg, #2f59ef, #07098f);
     color: #fff;
     font-size: 1rem;
     font-weight: bold;
@@ -393,10 +408,11 @@ body {
     text-align: center;
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
-    border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาเพิ่มมิติ */
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 35vh;
+    border: solid 3px rgba(255, 255, 255, 0.923);
   }
   
   .btn-logout:hover {
@@ -430,7 +446,7 @@ body {
   }
   
   #message-list > div {
-    background-color: #f9f9f9;
+    background: linear-gradient(145deg, #2f59ef4c, #07098f4f);
     padding: 0.75rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -443,11 +459,7 @@ body {
   gap: 0.5rem;
   align-items: center;
   border-radius: 12px;
-  padding: 0.75rem;
-  
   width: 100%;
-  max-width: 500px;
-  margin: 0rem auto;
 }
 
 #message-form input[type="text"] {
@@ -459,9 +471,10 @@ body {
   border-radius: 8px;
   background-color: #f3f4f6;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
-  margin-left: -5%;
+  margin-left: 0%;
+  margin-top: 3vh;
   align-items: center;
-  width: 200px;
+  
 }
 
 #message-form input[type="text"]:focus {
@@ -470,7 +483,7 @@ body {
 }
 
 #message-form input[type="submit"] {
-  background-color: #a94ad8;
+  background: linear-gradient(145deg, #2f59ef, #07098f);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -479,6 +492,9 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  border: solid 3px #ffffff;
+  width: 15vh;
+  margin-top: 3vh;
 }
 
 #message-form input[type="submit"]:hover {
@@ -521,13 +537,40 @@ body {
   
 }
 
+.DeleteBTM {
+  background: linear-gradient(145deg, #2f59ef, #07098f); /* เพิ่มการไล่สีจากสีน้ำเงินอ่อนไปเข้ม */
+  color: #fff; /* สีตัวอักษรขาว */
+  height: 4vh; /* กำหนดความสูงเป็น 6vh (viewport height) */
+  padding: 0 20px; /* กำหนดระยะห่างซ้ายและขวา */
+  border: none; /* ไม่มีเส้นขอบ */
+  border-radius: 8px; /* มุมโค้งมน */
+  font-size: 0.7rem; /* ขนาดตัวอักษร */
+  font-weight: bold; /* ทำให้ตัวอักษรหนาขึ้น */
+  text-transform: uppercase; /* เปลี่ยนตัวอักษรให้เป็นตัวพิมพ์ใหญ่ */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อ hover */
+  transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้กับปุ่ม */
+  margin-top: -25vh;
+  
+}
+
+.DeleteBTM:hover {
+  background: linear-gradient(145deg, #1c4bb2, #07098f); /* เปลี่ยนสีเมื่อ hover */
+  transform: translateY(-3px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
+}
+
+.DeleteBTM:active {
+  transform: translateY(1px); /* เมื่อคลิกปุ่ม ปุ่มจะยุบตัวลง */
+}
+
+
 #actions form input[type="text"]:focus {
   background-color: #ffffff;
-  box-shadow: 0 0 0 2px #fbbf24;
 }
 
 #actions form input[type="submit"] {
-  background-color: #a94ad8;
+  background: linear-gradient(145deg, #2f59ef, #07098f);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -536,6 +579,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  border: solid 3px #ffffff;
+  width: 26vh;
 }
 
 #actions form input[type="submit"]:hover {
@@ -550,29 +595,6 @@ body {
   color: #b91c1c;
 }
 
-button[data-confirm] {
-  background-color: #ef4444; /* สีแดงสำหรับปุ่ม Delete */
-  color: white;
-  border: none;
-  padding: 0.25rem 0.5rem; /* ปรับ padding ให้เล็กลง */
-  border-radius: 6px; /* มุมโค้งเล็กลง */
-  font-size: 0.8rem; /* ขนาดข้อความเล็กลง */
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  margin-left: 1rem;
-  margin-top: -1rem;
-}
-
-button[data-confirm]:hover {
-  background-color: #b91c1c; /* สีแดงเข้มขึ้นเมื่อ hover */
-  transform: scale(1.05); /* ขยายเล็กน้อย */
-}
-
-button[data-confirm]:active {
-  transform: scale(1); /* ย้อนกลับเมื่อคลิก */
-  background-color: #7f1d1d; /* สีเข้มที่สุดเมื่อกด */
-}
 
 .notice {
   position: fixed; 
@@ -588,4 +610,11 @@ button[data-confirm]:active {
   opacity: 0; /* เริ่มต้นให้ซ่อน */
   pointer-events: none; /* ป้องกันการคลิกเมื่อซ่อน */
   transition: opacity 0.5s ease-in-out; /* เพิ่มการเปลี่ยนแปลงแบบนุ่มนวล */
+}
+.DeleateRoom {
+  background: linear-gradient(145deg, #2f59ef, #07098f);
+  margin-top: 0vh;
+  margin-left: 4vh;
+  font-size: small;
+  font-weight: bold;
 }
