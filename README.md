@@ -3,8 +3,8 @@
 
 1. โคลนโปรเจกต์ลงในเครื่องของคุณ
 
-git clone https://github.com/a0ms1nn/ChatApp.git  
-cd ChatApp  
+  git clone https://github.com/a0ms1nn/ChatApp.git  
+  cd ChatApp  
 
 2. ติดตั้ง Dependencies
 
