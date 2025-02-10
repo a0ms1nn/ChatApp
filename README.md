@@ -1,23 +1,24 @@
-โปรเจกต์นี้เป็นแอปพลิเคชันแชทที่พัฒนาด้วย Ruby on Rails  
+### วิธีการรันโปรเจกต์
+## ทำตามขั้นตอนด้านล่างเพื่อเริ่มต้นใช้งานโปรเจกต์:
 
-## วิธีการรันโปรเจกต์  
+1. โคลนโปรเจกต์ลงในเครื่องของคุณ
 
-### 1. โคลนโปรเจกต์ลงเครื่อง  
+git clone https://github.com/a0ms1nn/ChatApp.git  
+cd ChatApp  
 
-   git clone https://github.com/a0ms1nn/ChatApp.git  
-   cd ChatApp  
+2. ติดตั้ง Dependencies
 
-### 2. ติดตั้ง Dependencies
+ใช้คำสั่งด้านล่างเพื่อดาวน์โหลด dependencies ที่จำเป็น:
 
 bundle install  
 
-3. ตั้งค่า Database
-	•	สร้างฐานข้อมูล:
+3. ตั้งค่าฐานข้อมูล
+	1.	สร้างฐานข้อมูล:
 
 rails db:create  
 
 
-	•	รันการ Migrate:
+	2.	รันการ Migrate:
 
 rails db:migrate  
 
@@ -25,9 +26,10 @@ rails db:migrate
 
 4. รันเซิร์ฟเวอร์
 
+เริ่มเซิร์ฟเวอร์ด้วยคำสั่ง:
+
 rails server  
 
-5. เปิดใช้งาน
-	•	เปิดเบราว์เซอร์และไปที่:
+5. เปิดเบราว์เซอร์แล้วไปที่:
 
 http://localhost:3000  
